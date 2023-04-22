@@ -22,17 +22,25 @@ public class DriverServiceImpl implements DriverService {
 	public void register(String mobile, String password){
 		//Save a driver in the database having given details and a cab with ratePerKm as 10 and availability as True by default.
 		Driver driver = new Driver();
-		driver.setPassword(password);
 		driver.setMobile(mobile);
-
-
+		driver.setPassword(password);
 		Cab cab = new Cab();
-		//cab.setDriver(driver);// error show but all test case pass
-		cab.setAvailable(true);
 		cab.setPerKmRate(10);
-		driver.setCab(cab);
-
+		cab.setAvailable(Boolean.TRUE);
+		cab.setDriver(driver);
 		driverRepository3.save(driver);
+//		Driver driver = new Driver();
+//		driver.setPassword(password);
+//		driver.setMobile(mobile);
+//
+//
+//		Cab cab = new Cab();
+//		cab.setDriver(driver);// error show but all test case pass
+//		cab.setAvailable(true);
+//		cab.setPerKmRate(10);
+//		//driver.setCab(cab);
+//
+//		driverRepository3.save(driver);
 	}
 
 	@Override
